@@ -1,5 +1,5 @@
 ArrayList<PShape> rings = new ArrayList<PShape>();
-float INNER_RAD = 2, OUTER_RAD = 9, INC = 2, STAR_COUNT = 5000, INC_INC = .5, RING_COUNT = 50;
+float INNER_RAD = 2, OUTER_RAD = 9, INC = 2, STAR_COUNT = 5000, INC_INC = .5, RING_COUNT = 50, MIN_STAR_SIZE = 1, MAX_STAR_SIZE = 3;
 
 void setup() {
   size(1600,1000,P3D);
@@ -11,7 +11,7 @@ void setup() {
       float a = random(0, 1) * TWO_PI;
       float r = sqrt(random(sq(INNER_RAD), sq(OUTER_RAD)));
       stroke(lerpColor(color(157, 47, 77), color(73, 115, 161), ringIndex/RING_COUNT));
-      strokeWeight(random(1, 5));
+      strokeWeight(random(MIN_STAR_SIZE, MAX_STAR_SIZE));
       ring.vertex(r * cos(a), r * sin(a), random(-INC, INC));
     }
     ring.endShape();
